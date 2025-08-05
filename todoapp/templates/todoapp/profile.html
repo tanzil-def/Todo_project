@@ -1,0 +1,29 @@
+{% extends "todoapp/base.html" %}
+{% block title %}User Profile{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card shadow task-card" style="border-left-color: #3498db; background-color: #f0f8ff;">
+      <div class="card-body">
+        <h3 class="card-title mb-4 text-center" style="color: #21618c;">User Profile</h3>
+        
+        <div class="mb-3">
+          <label class="form-label"><strong>Username</strong></label>
+          <input type="text" class="form-control" value="{{ request.user.username }}" readonly>
+        </div>
+        
+        <div class="mb-3">
+          <label class="form-label"><strong>Password</strong></label><br>
+          <a href="{% url 'password_change' %}" class="btn btn-sm btn-outline-primary">Change Password</a>
+        </div>
+        
+        <div class="mb-3">
+          <label class="form-label"><strong>Email</strong></label>
+          <input type="email" class="form-control" value="{{ request.user.email }}" readonly>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
